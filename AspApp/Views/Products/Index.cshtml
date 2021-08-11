@@ -1,0 +1,42 @@
+﻿@using AspApp.Models
+@model ProductsPageViewModel
+@{
+    ViewData["Title"] = "Products";
+}
+
+<div class="text-center">
+    <h3 class="display-4">Produkter</h3>
+    
+    <partial name="_Catmenu.cshtml">
+
+
+
+
+        @if (Model.Products == null)
+        {
+            <span>Productscatalog</span>
+        }
+        else
+        {
+            <div class="row row-cols-1 row-cols-md-4 g-4">
+                @foreach (var item in Model.Products)
+                {
+                    <div class="col">
+                        <div class="card shadow">
+                            <img src="@item.Imageurl" class="card-img-top" alt="@item.Name" >
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">@item.Name</h5>
+                            <p class="card-text">@item.Description</p>
+                            <a asp-controller="Products" asp-action="Edit" asp-route-id=@item.Id><i class="fas fa-edit"></i></a>
+                            <a asp-controller="Products" onclick="return confirm('Are you sure you want to delete : @item.Name')" asp-action="Delete" asp-route-id=@item.Id><i class="fas fa-trash-alt"></i></a>
+                        </div>
+                    </div>
+                
+            }
+        </div>
+
+                }
+
+
+</div>
