@@ -12,5 +12,13 @@ namespace AspApp.Controllers
         {
             return View();
         }
+       
+       
+        public IActionResult Start()
+        {
+
+
+            return View();
+        }
     }
 }

@@ -19,6 +19,7 @@ namespace AspApp.Controllers
         {
             _context = context;
         }
+        
         public IActionResult Index(int id)
         {
            
@@ -116,7 +117,10 @@ namespace AspApp.Controllers
             TempData["Confirm"] = "Product saved!";
             return View(product);
         }
-
+       
+     
+        
+       
         [HttpPost]
         public async Task<IActionResult> Edit(int id,Product product)
         {
