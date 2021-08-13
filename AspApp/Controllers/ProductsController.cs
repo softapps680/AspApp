@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 
 
 namespace AspApp.Controllers
@@ -47,13 +48,16 @@ namespace AspApp.Controllers
            
         }
         [HttpGet]
+        [Authorize]
         public IActionResult Edit(int id)
         {
             var model = _context.Products.Find(id);
 
             return View(model);
         }
+        
         [HttpGet]
+        [Authorize]
         public async Task<IActionResult> Delete(int id)
         {
            
@@ -72,6 +76,7 @@ namespace AspApp.Controllers
         }
         
         [HttpGet]
+        [Authorize]
         public  IActionResult Create()
         {
 
