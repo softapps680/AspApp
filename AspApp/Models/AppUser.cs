@@ -12,13 +12,15 @@ namespace AspApp.Models
     {
         //lägg till de ja vill ha
         [PersonalData]
-        [Required]
+     //   [Required]
         [Column(TypeName = "nvarchar(50)")]
         public string FirstName { get; set; }
 
         [PersonalData]
-        [Required]
+      //  [Required]
         [Column(TypeName = "nvarchar(50)")]
         public string LastName { get; set; }
+
+        //public string Discriminator { get; set; } 
     }
 }

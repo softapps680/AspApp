@@ -11,10 +11,14 @@ namespace AspApp.Controllers
     public class AccountController : Controller
     {
         private readonly AppDbContext _context;
-        private readonly UserManager<IdentityUser> _usermanager;
-        private readonly SignInManager<IdentityUser> _signInManager;
-        public AccountController(UserManager<IdentityUser> userManager,
-            SignInManager<IdentityUser> signInManager, AppDbContext context)
+       // private readonly UserManager<IdentityUser> _usermanager;
+        //private readonly SignInManager<IdentityUser> _signInManager;
+       
+        private readonly UserManager<AppUser> _usermanager;
+        private readonly SignInManager<AppUser> _signInManager;
+       //bytt
+        public AccountController(UserManager<AppUser> userManager,
+            SignInManager<AppUser> signInManager, AppDbContext context)
         {
             _context = context;
             _usermanager = userManager;
@@ -42,7 +46,9 @@ namespace AspApp.Controllers
                     LastName=model.LastName,
                     UserName = model.Email,
                     
-                    Email = model.Email
+                    Email = model.Email,
+                   
+                    
                 };
                 //passwordet ska hashas
                 var result = await _usermanager.CreateAsync(user, model.Password);

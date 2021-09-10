@@ -129,6 +129,7 @@ namespace AspApp.Controllers
         [HttpPost]
         public async Task<IActionResult> Edit(int id,Product product)
         {
+            
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
